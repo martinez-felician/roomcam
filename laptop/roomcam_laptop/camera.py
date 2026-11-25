@@ -13,6 +13,12 @@ from dataclasses import dataclass
 import cv2
 import numpy as np
 
+# Silenciar los avisos de OpenCV al buscar cámaras que no existen.
+try:
+    cv2.utils.logging.setLogLevel(cv2.utils.logging.LOG_LEVEL_ERROR)
+except AttributeError:
+    pass
+
 
 class CameraError(Exception):
     """Error con un mensaje claro para mostrar al usuario."""
