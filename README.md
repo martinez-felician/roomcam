@@ -11,5 +11,5 @@ Estado: en construcción. Consulta [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) 
 | Carpeta | Contenido | Estado |
 |---|---|---|
 | `server/` | Servidor FastAPI | Listo (13 pruebas automáticas) |
-| `laptop/` | App de escritorio (Python) | Pendiente |
+| `laptop/` | App de escritorio (Python) | Lista (9 pruebas, incluida una de extremo a extremo con vídeo WebRTC) |
 | `phone/` | App web instalable (PWA) | Pendiente |
