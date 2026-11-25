@@ -94,10 +94,12 @@ def main() -> int:
                   "Abre el enlace que aparece, inicia sesión y vuelve a ejecutar este script.")
             return 1
         print(f"Publicando el servidor en tu red privada de Tailscale: {url}")
-        res = subprocess.run([exe, "serve", "--bg", str(PORT)], capture_output=True, text=True, timeout=60)
+        print("Si Tailscale muestra un enlace para activar 'Serve' o HTTPS, ábrelo en el navegador y actívalo.")
+        # Sin capturar la salida: si Tailscale pide activar Serve/HTTPS, el usuario ve el enlace.
+        res = subprocess.run([exe, "serve", "--bg", str(PORT)])
         if res.returncode != 0:
-            print("\nTailscale no pudo publicar el servidor. Mensaje de Tailscale:\n" + (res.stderr or res.stdout))
-            print("Si menciona HTTPS, actívalo en https://login.tailscale.com/admin/dns (MagicDNS y HTTPS Certificates).")
+            print("\nTailscale no pudo publicar el servidor.")
+            print("Activa HTTPS en https://login.tailscale.com/admin/dns (MagicDNS y HTTPS Certificates) y vuelve a intentarlo.")
             return 1
         public_url = url
     values["ROOMCAM_PUBLIC_URL"] = public_url
