@@ -1,5 +1,7 @@
 # Puesta en marcha de RoomCam
 
+> ¿Quieres empezar gratis sin hosting? Usa [SERVIDOR-EN-TU-LAPTOP.md](SERVIDOR-EN-TU-LAPTOP.md). Esta guía es para un servidor en internet.
+
 Tres partes: **servidor** (en internet, con https), **laptop** (tu HP) y **teléfono** (tu iPhone). Calcula entre 30 y 60 minutos la primera vez.
 
 ## 0. Probar sin nada configurado (modo demo)

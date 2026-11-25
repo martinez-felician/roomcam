@@ -6,6 +6,20 @@ import secrets
 from dataclasses import dataclass, field
 
 
+def load_dotenv(path: str = ".env") -> None:
+    """Carga un archivo .env sencillo (CLAVE=valor) sin pisar variables ya definidas."""
+    try:
+        with open(path, encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, value = line.split("=", 1)
+                os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+    except OSError:
+        pass
+
+
 def _env(name: str, default: str = "") -> str:
     return os.environ.get(name, default).strip()
 

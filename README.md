@@ -17,7 +17,8 @@ Cámara de seguridad privada para tu laptop, con alertas y vista en vivo en tu t
 ## Empezar
 
 1. **Probar sin configurar nada:** `python -m roomcam_laptop --demo` en la laptop ([instrucciones](laptop/README.md)).
-2. **Sistema real:** sigue [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md).
+2. **Sistema real gratis:** servidor en tu propia laptop con Tailscale, ver [docs/SERVIDOR-EN-TU-LAPTOP.md](docs/SERVIDOR-EN-TU-LAPTOP.md) (en Windows basta con `iniciar-servidor.ps1`).
+3. **Servidor siempre encendido en internet:** sigue [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md) (Fly.io).
 
 ## Estado
 

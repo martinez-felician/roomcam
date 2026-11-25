@@ -129,7 +129,10 @@ class Hub:
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
-    settings = settings or Settings()
+    if settings is None:
+        from .config import load_dotenv
+        load_dotenv()
+        settings = Settings()
     db = Database(settings.database_path)
     hub = Hub()
     pusher = PushSender(settings)
