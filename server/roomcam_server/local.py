@@ -77,6 +77,7 @@ def main() -> int:
 
     values = read_env()
     if ensure_secrets(values):
+        write_env(values)
         print("Se creó el archivo .env con un secreto nuevo y claves de notificación (VAPID).")
 
     public_url = f"http://localhost:{PORT}"
@@ -88,7 +89,9 @@ def main() -> int:
             return 1
         url = tailscale_url(exe)
         if not url:
-            print("\nTailscale está instalado pero no conectado. Ábrelo, inicia sesión y vuelve a intentarlo.")
+            print("\nTailscale está instalado pero esta computadora no está conectada a tu cuenta.\n"
+                  "Abre PowerShell y escribe:  tailscale up\n"
+                  "Abre el enlace que aparece, inicia sesión y vuelve a ejecutar este script.")
             return 1
         print(f"Publicando el servidor en tu red privada de Tailscale: {url}")
         res = subprocess.run([exe, "serve", "--bg", str(PORT)], capture_output=True, text=True, timeout=60)
