@@ -10,6 +10,6 @@ Estado: en construcción. Consulta [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) 
 
 | Carpeta | Contenido | Estado |
 |---|---|---|
-| `server/` | Servidor FastAPI | Pendiente |
+| `server/` | Servidor FastAPI | Listo (13 pruebas automáticas) |
 | `laptop/` | App de escritorio (Python) | Pendiente |
 | `phone/` | App web instalable (PWA) | Pendiente |
