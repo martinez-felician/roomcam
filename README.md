@@ -42,10 +42,10 @@ Pruebas: `server/` 13, `laptop/` 9 (incluye una de extremo a extremo con vídeo)
 - **TURN** para que el vídeo funcione en redes móviles o con NAT estricto.
 - No hace falta cuenta de Apple Developer ni Firebase.
 
-### No probado todavía
+### Probado en dispositivos reales (25/11/2026)
 
-- Cámara física real (las pruebas usan fotogramas sintéticos).
-- Notificación push real en un iPhone (requiere el servidor desplegado).
+- Laptop HP con Windows y Python 3.13, cámara integrada, servidor en la misma laptop con Tailscale.
+- iPhone con la app instalada en la pantalla de inicio: emparejamiento, notificación de movimiento real y vista en vivo funcionando.
 
 ### Limitaciones de plataforma
 
