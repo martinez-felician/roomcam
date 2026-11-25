@@ -421,7 +421,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.get("/api/ice")
     def ice_servers(p: Principal = Depends(current)) -> dict:
-        servers = [{"urls": [u.strip() for u in settings.stun_urls.split(",") if u.strip()]}]
+        stun = [u.strip() for u in settings.stun_urls.split(",") if u.strip()]
+        servers = [{"urls": stun}] if stun else []
+        if settings.turn_enabled and not settings.turn_secret:
+            servers.append({
+                "urls": [u.strip() for u in settings.turn_urls.split(",") if u.strip()],
+                "username": settings.turn_username,
+                "credential": settings.turn_credential,
+            })
+            return {"ice_servers": servers, "turn": True}
         if settings.turn_enabled:
             user, cred, expires = security.turn_credentials(settings.turn_secret, p.device_id, settings.turn_ttl_seconds)
             servers.append({

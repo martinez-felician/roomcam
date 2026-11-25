@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1a73e8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RoomCam">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>RoomCam</title>
+</head>
+<body>
+  <div id="demo-banner" class="banner demo" hidden>
+    MODO DEMO · Todo lo que ves aquí es SIMULADO: no hay laptop, notificaciones ni vídeo reales.
+    <button id="exit-demo" class="link">Salir</button>
+  </div>
+  <div id="offline-banner" class="banner warn" hidden>Sin conexión con el servidor. Reintentando…</div>
+  <main id="app"></main>
+  <script src="app.js" type="module"></script>
+</body>
+</html>

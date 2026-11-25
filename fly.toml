@@ -1,0 +1,20 @@
+# Configuración para Fly.io. Cambia "app" por un nombre único antes de desplegar.
+app = "roomcam-CAMBIA-ESTE-NOMBRE"
+primary_region = "mia"
+
+[build]
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "off"   # el WebSocket de la laptop debe seguir abierto
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[mounts]]
+  source = "roomcam_data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

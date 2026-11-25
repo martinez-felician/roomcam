@@ -34,6 +34,9 @@ class Settings:
     stun_urls: str = field(default_factory=lambda: _env("ROOMCAM_STUN_URLS", "stun:stun.l.google.com:19302"))
     turn_urls: str = field(default_factory=lambda: _env("ROOMCAM_TURN_URLS"))
     turn_secret: str = field(default_factory=lambda: _env("ROOMCAM_TURN_SECRET"))
+    # Alternativa para servicios TURN con usuario y contraseña fijos (p. ej. Metered).
+    turn_username: str = field(default_factory=lambda: _env("ROOMCAM_TURN_USERNAME"))
+    turn_credential: str = field(default_factory=lambda: _env("ROOMCAM_TURN_CREDENTIAL"))
     turn_ttl_seconds: int = field(default_factory=lambda: int(_env("ROOMCAM_TURN_TTL", "3600")))
 
     # Carpeta de la app del teléfono (PWA) que el servidor sirve en /app.
@@ -53,4 +56,4 @@ class Settings:
 
     @property
     def turn_enabled(self) -> bool:
-        return bool(self.turn_urls and self.turn_secret)
+        return bool(self.turn_urls and (self.turn_secret or (self.turn_username and self.turn_credential)))

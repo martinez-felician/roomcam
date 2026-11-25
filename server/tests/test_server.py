@@ -129,7 +129,9 @@ def test_turn_credentials(app, client):
     app.state.settings.turn_urls = "turn:turn.example.com:3478"
     app.state.settings.turn_secret = "s3cret"
     ice = client.get("/api/ice", headers=auth(laptop)).json()
-    assert ice["turn"] is True and ice["ice_servers"][1]["username"].endswith(laptop["device_id"])
+    assert ice["turn"] is True and ice["ice_servers"][-1]["username"].endswith(laptop["device_id"])
+    app.state.settings.stun_urls = ""
+    assert all(s["urls"] for s in client.get("/api/ice", headers=auth(laptop)).json()["ice_servers"])
 
 
 def test_signaling_relay_and_presence(client):
